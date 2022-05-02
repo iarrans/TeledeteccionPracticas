@@ -34,19 +34,15 @@ function ampliada= amplia(img)
       endif
   end
   
-  %%Finalmente rellenamos las líneas negras finales con la última línea buena:
-
-   #{
-      for e = Fr:-1:Fr-(R-1)
-          im2(e, :) = im2(Fr-R, :);
-      end
-      for e = Cr:-1:Cr-(R-1)
-          im2(:, e) = im2(:, Cr-R);
-      end
-    #}
-  ampliada = uint8(ampliada);
-  imshow(ampliada);
-  %
+  %%Corrección de extremos (última columna y última fila)
+ampliada(2*F,:)= ampliada((2*F)-1,:);
+ampliada(:,2*C)= ampliada(:,(2*C)-1);
   
+    
+ampliada = uint8(ampliada);
+imshow(ampliada);
+
  
 endfunction
+
+%>> gris = imread('bn2graydiezma.png');
