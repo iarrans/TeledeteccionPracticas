@@ -4,7 +4,7 @@ function im2= rvi(n, r)
   im2 = uint8(zeros(F,C,3));
   for f = 1:F
     for c = 1:C
-      nd = im1(f,c);
+      %nd = im1(f,c);
       ndn = double(n(f,c)) / 255;
       ndr = double(r(f,c)) / 255;
       if (ndn>0 & ndr>0)
